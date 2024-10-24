@@ -27,7 +27,7 @@ function preparePage() {
   setTimeout(() => {
     filterProducts(currentRegion);
   }, 500);
-  //xClickEvent("Button ID", "language code"," "region code")
+  //xClickEvent("Button ID", "language code"," "region code" "display name")
   addClickEvent("region-btn-sv", "sv", "sv", "Sverige");
   addClickEvent("region-btn-global", "en", "en", "Global");
   addClickEvent("region-btn-de", "de", "de", "Deutschland");
@@ -46,6 +46,19 @@ function createRegionVariables() {
   });
 }
 
+//load variables from CMS collection pages
+function loadVariables(slugTrim, slug, divClass) {
+  $(`#region-${slugTrim}`).load(`${slug} .${divClass}`);
+}
+
+function createDiv(className, id, parentDiv) {
+  let newDiv = document.createElement("div");
+  newDiv.className = className;
+  newDiv.id = id;
+  //newDiv.style.display = "none";
+  parentDiv.appendChild(newDiv);
+}
+
 function filterProducts(region) {
   showAllProducts();
   const productItems = document.querySelectorAll(".product-grid_item");
@@ -60,19 +73,6 @@ function filterProducts(region) {
       }
     });
   });
-}
-
-//load variables from CMS collection pages
-function loadVariables(slugTrim, slug, divClass) {
-  $(`#region-${slugTrim}`).load(`${slug} .${divClass}`);
-}
-
-function createDiv(className, id, parentDiv) {
-  let newDiv = document.createElement("div");
-  newDiv.className = className;
-  newDiv.id = id;
-  //newDiv.style.display = "none";
-  parentDiv.appendChild(newDiv);
 }
 
 /*  !----------------------------------

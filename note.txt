@@ -1,0 +1,7 @@
+www.rol.com
+en.rol.com
+sv.rol.com
+
+www.rol.com?region=Global
+www.rol.com?region=Scandinavia
+www.rol.com?region=Europe
